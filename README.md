@@ -109,5 +109,5 @@ Example:
 
 ## Todo
 
-[ ] Field specific colors.
-[ ] Add a cli command to start logging with an optional specified config.
+- [ ] Field specific colors.
+- [ ] Add a cli command to start logging with an optional specified config.
