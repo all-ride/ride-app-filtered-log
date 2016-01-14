@@ -16,7 +16,7 @@ Available levels are:
 - "W" for warning
 - "D" for debug
 
-example:
+Example:
 ```js
 // parameters.json
 {
@@ -41,7 +41,7 @@ Available fields are:
 -"title"
 -"description"
 
-example:
+Example:
 ```js
 // parameters.json
 {
@@ -55,7 +55,7 @@ example:
 
 This parameter takes an array of sources. Examples are "app" or "database".
 
-example:
+Example:
 ```js
 // parameters.json
 {
@@ -69,7 +69,7 @@ example:
 
 A separator can be specified to override the default column separator. This parameter requires a string value.
 
-example:
+Example:
 ```js
 // parameters.json
 {
@@ -83,7 +83,7 @@ example:
 
 By enabling this option, the log will be colored. This parameter requires a boolean value.
 
-example:
+Example:
 ```js
 // parameters.json
 {
@@ -97,7 +97,7 @@ example:
 
 Specify a different log file by providing a path.
 
-example:
+Example:
 ```js
 // parameters.json
 {
