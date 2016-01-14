@@ -1,0 +1,21 @@
+{
+    "name": "ride/app-filtered-log",
+    "description": "Adds filtered log support",
+    "license": "MIT",
+    "version": "0.1.0",
+    "authors": [
+        {
+            "name": "Brent Roose",
+            "email": "brent@statik.be"
+        }
+    ],
+    "require": {
+        "ride/lib-log": ">=0.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "ride\\library\\decorator\\": ["src/"],
+            "ride\\library\\log\\": ["src/"]
+        }
+    }
+}

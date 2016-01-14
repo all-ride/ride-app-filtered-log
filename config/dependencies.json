@@ -1,0 +1,134 @@
+{
+    "dependencies": [
+        {
+            "interfaces": "ride\\library\\log\\listener\\LogListener",
+            "class": "ride\\library\\log\\listener\\FilteredFileLogListener",
+            "id": "file",
+            "calls": [
+                {
+                    "method": "__construct",
+                    "arguments": [
+                        {
+                            "name": "fileName",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.file"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "method": "setFileTruncateSize",
+                    "arguments": [
+                        {
+                            "name": "size",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.truncate",
+                                "default": 1024
+                            }
+                        }
+                    ]
+                },
+                {
+                    "method": "setLevel",
+                    "arguments": [
+                        {
+                            "name": "level",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.level"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "method": "setLogMessageDecorator",
+                    "arguments": [
+                        {
+                            "name": "logMessageDecorator",
+                            "type": "dependency",
+                            "properties": {
+                                "interface": "ride\\library\\decorator\\Decorator",
+                                "id": "debug"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "method": "addSources",
+                    "arguments": [
+                        {
+                            "name": "sources",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.sources",
+                                "default": ["app", "database"]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "method": "addLevels",
+                    "arguments": [
+                        {
+                            "name": "levels",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.levels",
+                                "default": ["E", "W", "I", "D"]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "interfaces": "ride\\library\\decorator\\Decorator",
+            "class": "ride\\library\\decorator\\FilteredLogMessageDecorator",
+            "id": "debug",
+            "extends" : "log.message",
+            "calls" : [
+                {
+                    "method": "addFields",
+                    "arguments": [
+                        {
+                            "name": "fields",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.fields",
+                                "default": ["id", "date", "client", "duration", "source", "memory", "level", "title", "description"]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "method": "setSeparator",
+                    "arguments": [
+                        {
+                            "name": "separator",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.separator",
+                                "default": "~"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "method": "useColors",
+                    "arguments": [
+                        {
+                            "name": "useColors",
+                            "type": "parameter",
+                            "properties": {
+                                "key": "log.colors",
+                                "default": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
