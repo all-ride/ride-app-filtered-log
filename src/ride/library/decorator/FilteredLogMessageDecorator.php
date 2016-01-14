@@ -190,17 +190,13 @@ class FilteredLogMessageDecorator implements Decorator {
         $output = array();
         foreach ($this->fields as $key=>$field) {
             if ($field = $this->getParsedValue($field, $value)) {
-                if ($this->useColors) {
-                    $field = $this->color($field, $this->levelColors[$value->getLevel()]);
-                }
-
                 $output[$key] = $field;
             }
         }
 
         $separator = $this->separator;
         if ($this->useColors) {
-            $separator = $this->color($separator, self::COLOR_CYAN);
+            $separator = $this->color($separator, $this->levelColors[$value->getLevel()]);
         }
         $output = implode($separator, $output);
 
@@ -216,7 +212,11 @@ class FilteredLogMessageDecorator implements Decorator {
     protected function getParsedValue($key, $value) {
         switch ($key) {
             case self::COLUMN_ID:
-                return $value->getId();
+                $id = $value->getId();
+                if ($this->useColors) {
+                    $id = $this->color($id, $this->levelColors[$value->getLevel()]);
+                }
+                return $id;
 
             case self::COLUMN_DATE:
                 $date = $value->getDate();
@@ -242,10 +242,18 @@ class FilteredLogMessageDecorator implements Decorator {
                 return $value->getSource();
 
             case self::COLUMN_LEVEL:
-                return $this->levels[$value->getLevel()];
+                $level = $this->levels[$value->getLevel()];
+                if ($this->useColors) {
+                    $level = $this->color($level, $this->levelColors[$value->getLevel()]);
+                }
+                return $level;
 
             case self::COLUMN_TITLE:
-                return $value->getTitle();
+                $title = $value->getTitle();
+                if ($this->useColors) {
+                    $title = $this->color($title, $this->levelColors[$value->getLevel()]);
+                }
+                return $title;
 
             case self::COLUMN_DESCRIPTION:
                 $description = $value->getDescription();
