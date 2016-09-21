@@ -2,7 +2,7 @@
     "name": "ride/app-filtered-log",
     "description": "Adds filtered log support",
     "license": "MIT",
-    "version": "0.1.2",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Brent Roose",
