@@ -1,0 +1,3 @@
+{
+    "log.filtered.file": "%application%/data/log/%environment%.filtered.log",
+}
