@@ -6,6 +6,10 @@ This modules allows you to create a filtered log from your properties.
 
 You can specify some options in parameters.json, which will alter the behaviour of the log.
 
+### log.filtered.file
+
+This parameter defaults to ``%application%/data/log/%environment%.filtered.log``.
+
 ### log.levels
 
 This parameter takes an array of log levels.

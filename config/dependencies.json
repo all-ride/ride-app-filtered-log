@@ -1,9 +1,30 @@
 {
     "dependencies": [
         {
+            "interfaces": "ride\\library\\log\\Log",
+            "class": "ride\\library\\log\\Log",
+            "extends": "app",
+            "id": "app",
+            "calls": [
+                {
+                    "method": "addLogListener",
+                    "arguments": [
+                        {
+                            "name": "listener",
+                            "type": "dependency",
+                            "properties": {
+                                "interface": "ride\\library\\log\\listener\\LogListener",
+                                "id": "filtered"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "interfaces": "ride\\library\\log\\listener\\LogListener",
             "class": "ride\\library\\log\\listener\\FilteredFileLogListener",
-            "id": "file",
+            "id": "filtered",
             "calls": [
                 {
                     "method": "__construct",
@@ -12,7 +33,7 @@
                             "name": "fileName",
                             "type": "parameter",
                             "properties": {
-                                "key": "log.file"
+                                "key": "log.filtered.file"
                             }
                         }
                     ]
@@ -50,7 +71,7 @@
                             "type": "dependency",
                             "properties": {
                                 "interface": "ride\\library\\decorator\\Decorator",
-                                "id": "debug"
+                                "id": "filtered"
                             }
                         }
                     ]
@@ -86,7 +107,7 @@
         {
             "interfaces": "ride\\library\\decorator\\Decorator",
             "class": "ride\\library\\decorator\\FilteredLogMessageDecorator",
-            "id": "debug",
+            "id": "filtered",
             "extends" : "log.message",
             "calls" : [
                 {
