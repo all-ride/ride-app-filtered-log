@@ -14,6 +14,7 @@ class FilteredLogMessageDecorator implements Decorator {
      * @var \ride\library\decorator\Decorator
      */
     protected $dateDecorator;
+    protected mixed $fields;
 
     /**
      * Sets the decorator for the date value
