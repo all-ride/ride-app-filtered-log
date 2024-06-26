@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1
+### Updated
+- Added new release version for bumped composer
 ## 1.1.0
 ### Updated
 - Fixed dynamic creation of properties
